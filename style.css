@@ -1,4 +1,14 @@
 /* =====================
+   FUENTE: FT Base (local)
+===================== */
+@font-face{
+  font-family: "FT Base";
+  src: url("fonts/FTBase-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* =====================
    RESET / BASE
 ===================== */
 *{ box-sizing: border-box; }
@@ -12,8 +22,11 @@ body{
   font-family: Arial, sans-serif;
   text-align: center;
 
-  /* ✅ Fondo morado sólido (similar a la imagen) */
-  background: #6537F2;
+  /* ✅ FORZAR morado (evita que quede el fondo antiguo) */
+  background-color: #6537F2 !important;
+  background-image: none !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 
   min-height: 100vh;
   overflow: hidden;
@@ -30,6 +43,9 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  /* ✅ por si algún navegador/entorno mete fondo a secciones */
+  background: transparent !important;
 }
 
 .hidden{
@@ -45,40 +61,43 @@ h1, h2, label{
    PANTALLA INICIO
 ===================== */
 .start-screen{
-  justify-content: center;
-  gap: 18px;
+  justify-content: flex-start; /* ✅ logo arriba */
+  gap: 16px;
+  padding-top: 22px;
 }
 
-/* ✅ Tipografía FT Base en título y subtítulo */
+/* LOGO INICIO (arriba) */
+.guardianes-start{
+  width: min(520px, 80vw);
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.35));
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+/* TÍTULO Y SUBTÍTULO (FT Base) */
 .game-title{
   margin: 0;
   font-family: "FT Base", Arial, sans-serif;
   font-size: clamp(40px, 6vw, 64px);
-  font-weight: 700;
+  font-weight: 400;
   color: #ffffff;
 
-  background: #000; /* opaco */
+  background: #000;
   padding: 12px 28px;
   border-radius: 18px;
 }
 
 .game-subtitle{
-  margin: 0 0 10px;
+  margin: 0 0 6px;
   font-family: "FT Base", Arial, sans-serif;
   font-size: clamp(20px, 3.5vw, 28px);
-  font-weight: 500;
+  font-weight: 400;
   color: #f0f0f0;
 
-  background: #000; /* opaco */
+  background: #000;
   padding: 10px 24px;
   border-radius: 16px;
-}
-
-/* LOGO INICIO */
-.guardianes-start{
-  width: min(520px, 80vw);
-  height: auto;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.35));
 }
 
 /* BOTONES CON IMAGEN */
@@ -87,6 +106,7 @@ h1, h2, label{
   background: transparent;
   cursor: pointer;
   padding: 0;
+  margin-top: 6px;
 }
 
 .img-btn img{
@@ -109,7 +129,7 @@ h1, h2, label{
   justify-content: flex-start;
 }
 
-/* ✅ quita el logo en configuración */
+/* quita el logo en configuración */
 #setup-screen .guardianes-top{
   display: none !important;
 }
@@ -166,7 +186,7 @@ h1, h2, label{
   justify-content: flex-start;
 }
 
-/* ✅ quita logo guardianes durante el juego */
+/* quita logo guardianes durante el juego */
 #game-screen .guardianes-game{
   display: none !important;
 }
@@ -294,7 +314,6 @@ h1, h2, label{
   color: #ffffff;
 }
 
-/* feedback separado */
 #feedback{
   min-height: 44px;
   margin-top: 18px;
@@ -321,7 +340,6 @@ h1, h2, label{
   z-index: 1;
 }
 
-/* limitar logo final para que no tape el layout */
 #end-screen .guardianes-top{
   width: min(320px, 70vw);
   max-height: 18vh;
@@ -336,7 +354,7 @@ h1, h2, label{
 }
 
 /* =====================
-   MÓVIL: ajustes suaves (sin scroll)
+   MÓVIL
 ===================== */
 @media (max-width: 768px){
   .screen{
@@ -344,13 +362,9 @@ h1, h2, label{
     min-height: 100dvh;
     padding: 16px;
   }
-
-  #game-screen .guardianes-game{ display: none !important; }
 }
 
-/* =====================
-   CONFIGURACIÓN: SELECT NÚMERO DE EQUIPOS MÁS GRANDE
-===================== */
+/* CONFIG: select más grande */
 #setup-screen select#numTeams{
   width: 220px;
   padding: 12px 16px;
@@ -362,23 +376,4 @@ h1, h2, label{
 
   text-align: center;
   cursor: pointer;
-}
-
-/* =====================
-   AJUSTE FINO INICIO
-===================== */
-.start-screen .game-title{
-  margin-top: 10px;
-}
-
-.start-screen .game-subtitle{
-  margin-top: 6px;
-}
-
-.start-screen .img-btn{
-  margin-top: -10px;
-}
-
-.start-screen .guardianes-start{
-  margin-bottom: 18px;
 }
