@@ -14,7 +14,7 @@
   function bind() {
     const btn = document.getElementById("enterSetup");
     if (!btn) return;
-    btn.onclick = safeShowSetup; // handler de emergencia
+    btn.onclick = safeShowSetup;
   }
 
   if (document.readyState === "loading") {
@@ -34,37 +34,40 @@ document.addEventListener("DOMContentLoaded", () => {
     let timeLeft = 900;
     let timerInterval;
 
+    // ✅ 30 preguntas de sostenibilidad (4 opciones)
     const QUESTIONS = [
-      { q: "¿Qué es una hucha?", o: ["Un banco digital","Un lugar para gastar dinero","Un recipiente para guardar dinero","Una tarjeta de crédito"], a: 2 },
-      { q: "¿Cuál es la mejor forma de ahorrar dinero?", o: ["Gastarlo todo en juguetes","Guardar una parte sin gastarla","Pedir más dinero","No ir al colegio"], a: 1 },
-      { q: "¿Qué es el precio de un producto?", o: ["Lo que te regalan con él","El número de serie","Lo que cuesta","El nombre del fabricante"], a: 2 },
-      { q: "¿Qué es un presupuesto?", o: ["Un juego de mesa","Un billete especial","Un plan para organizar ingresos y gastos","Una calculadora"], a: 2 },
-      { q: "¿Qué es una tarjeta de débito?", o: ["Una tarjeta para videojuegos","Una tarjeta que permite pagar con el dinero que tienes","Una tarjeta que da dinero gratis","Una entrada de cine"], a: 1 },
-      { q: "¿Qué significa \"ingresos\"?", o: ["Dinero que ganas o recibes","Dinero que pierdes","Dinero que prestas","Dinero que se pierde en juegos"], a: 0 },
-      { q: "¿Qué es el ahorro?", o: ["Comprar más cosas","Guardar dinero para el futuro","Usar todas las monedas","Jugar con billetes"], a: 1 },
-      { q: "¿Qué es un gasto necesario?", o: ["Un videojuego","Ropa de marca","Comida y vivienda","Un helado"], a: 2 },
-      { q: "¿Qué es una necesidad?", o: ["Algo que quiero","Algo que no tiene precio","Algo básico para vivir","Algo divertido"], a: 2 },
-      { q: "¿Qué es el trabajo?", o: ["Una excursión","Una actividad que da ingresos","Un regalo","Una fiesta"], a: 1 },
-      { q: "¿Qué es un banco?", o: ["Un sitio para jugar","Un lugar para guardar dinero de forma segura","Una tienda de ropa","Un parque"], a: 1 },
-      { q: "¿Qué es una inversión?", o: ["Gastar dinero sin pensar","Prestar dinero a un amigo","Usar dinero para ganar más en el futuro","Comprar caramelos"], a: 2 },
-      { q: "¿Qué es el interés?", o: ["Dinero que se pierde","Dinero extra que se gana o se paga","Un billete especial","Una tienda"], a: 1 },
-      { q: "¿Para qué sirven los impuestos?", o: ["Para comprar juguetes","Para ayudar a financiar servicios públicos","Para jugar al Monopoly","Para regalar dinero"], a: 1 },
-      { q: "¿Qué es una deuda?", o: ["Dinero que te deben","Dinero que debes devolver","Dinero perdido","Un premio"], a: 1 },
-      { q: "¿Qué es una tarjeta de crédito?", o: ["Una entrada al cine","Una tarjeta para hacer dibujos","Una tarjeta que permite usar dinero prestado","Un carné de biblioteca"], a: 2 },
-      { q: "¿Qué es una moneda?", o: ["Un juguete","Dinero en forma de metal","Una piedra preciosa","Una tarjeta"], a: 1 },
-      { q: "¿Qué es un cajero automático?", o: ["Una máquina para sacar dinero","Una caja de juguetes","Un buzón","Un robot"], a: 0 },
-      { q: "¿Qué es una factura?", o: ["Una entrada","Un comprobante de compra","Un regalo","Un menú"], a: 1 },
-      { q: "¿Qué es el precio justo?", o: ["Un precio muy alto","Un precio adecuado al producto","Un precio inventado","Un precio aleatorio"], a: 1 },
-      { q: "¿Qué es una tienda online?", o: ["Una tienda sin productos","Una tienda en internet","Una tienda subterránea","Una aplicación de juegos"], a: 1 },
-      { q: "¿Qué es comparar precios?", o: ["Comprar todo sin mirar","Ver qué cuesta cada producto en diferentes lugares","Devolver productos","Coger cosas sin pagar"], a: 1 },
-      { q: "¿Qué es el poder adquisitivo?", o: ["La capacidad para gastar sin límite","Lo que puedes comprar con tu dinero","Un superpoder","El valor de una casa"], a: 1 },
-      { q: "¿Qué es una meta de ahorro?", o: ["Una cantidad de caramelos","Un objetivo para ahorrar dinero","Un lugar donde esconder monedas","Una nota en clase"], a: 1 },
-      { q: "¿Qué es un ingreso fijo?", o: ["Un premio ocasional","Un regalo sorpresa","Dinero que recibes con regularidad","Una apuesta"], a: 2 },
-      { q: "¿Qué es una cuenta bancaria?", o: ["Un juego de números","Una caja secreta","Un lugar donde se guarda y se controla el dinero","Una hucha con ruedas"], a: 2 },
-      { q: "¿Qué es el consumo responsable?", o: ["Comprar sin pensar","Comprar solo lo que necesitas y cuidar el medio ambiente","Gastar todo el dinero","Regalar billetes"], a: 1 },
-      { q: "¿Qué es una pensión?", o: ["Un hotel","Dinero que se da cuando una persona se jubila","Un préstamo","Un cheque"], a: 1 },
-      { q: "¿Qué es una moneda digital?", o: ["Una moneda de plástico","Dinero que solo existe en videojuegos","Dinero que se usa por internet","Una aplicación"], a: 2 },
-      { q: "¿Qué es una subvención?", o: ["Dinero que se paga en una tienda","Dinero que se regala por sorteo","Ayuda económica que da el gobierno","Un impuesto"], a: 2 },
+      { q: "¿Cuál es una ventaja del transporte público frente al coche privado?", o: ["Aumenta el tráfico", "Emite más CO₂", "Reduce emisiones por persona", "Consume más combustible"], a: 2 },
+      { q: "¿Qué significa que un edificio sea eficiente energéticamente?", o: ["Usa más luz artificial", "Necesita menos energía para el mismo confort", "Siempre usa gasoil", "No tiene ventanas"], a: 1 },
+      { q: "¿Cuál es una fuente de energía renovable?", o: ["Carbón", "Petróleo", "Energía solar", "Gas natural"], a: 2 },
+      { q: "¿Qué acción ayuda más a reducir residuos?", o: ["Usar productos de un solo uso", "Reutilizar y reparar", "Tirar todo mezclado", "Comprar más embalaje"], a: 1 },
+      { q: "¿Qué gas está muy relacionado con el cambio climático por efecto invernadero?", o: ["Oxígeno", "Dióxido de carbono (CO₂)", "Helio", "Nitrógeno"], a: 1 },
+      { q: "¿Qué es el reciclaje?", o: ["Tirar basura al suelo", "Convertir residuos en nuevos materiales", "Quemar residuos siempre", "Enterrarlo todo"], a: 1 },
+      { q: "¿Cuál de estos es un hábito de ahorro de energía en casa?", o: ["Dejar luces encendidas", "Usar bombillas LED", "Abrir la nevera mucho rato", "Poner la calefacción al máximo"], a: 1 },
+      { q: "¿Qué opción reduce más la huella de carbono en trayectos cortos?", o: ["Ir en avión", "Ir en bicicleta o a pie", "Ir solo en coche", "Dar vueltas antes de llegar"], a: 1 },
+      { q: "¿Qué significa “reducir” en las 3R?", o: ["Comprar más cosas", "Generar menos residuos desde el origen", "Romper productos", "Usar más plástico"], a: 1 },
+      { q: "¿Qué es la energía eólica?", o: ["Energía del viento", "Energía del carbón", "Energía del petróleo", "Energía de una batería"], a: 0 },
+
+      { q: "¿Qué práctica mejora la eficiencia energética en invierno?", o: ["Ventanas mal selladas", "Aislamiento térmico", "Poner el aire frío", "Abrir puertas todo el tiempo"], a: 1 },
+      { q: "¿Qué es la movilidad sostenible?", o: ["Moverse emitiendo lo máximo", "Moverse con menor impacto ambiental", "Moverse solo en coche grande", "Evitar cualquier desplazamiento"], a: 1 },
+      { q: "¿Qué residuo suele ir al contenedor azul (si existe en tu zona)?", o: ["Vidrio", "Papel y cartón", "Restos orgánicos", "Pilas"], a: 1 },
+      { q: "¿Cuál es un ejemplo de energía renovable en el mar?", o: ["Energía mareomotriz", "Gas natural", "Carbón importado", "Gasolina"], a: 0 },
+      { q: "¿Qué acción ayuda a ahorrar agua?", o: ["Duchas más cortas", "Dejar el grifo abierto", "Regar al mediodía en verano", "Lavar el coche cada día"], a: 0 },
+      { q: "¿Qué es compostar?", o: ["Mezclar plásticos con vidrio", "Convertir restos orgánicos en abono", "Tirar comida a la basura", "Quemar residuos en casa"], a: 1 },
+      { q: "¿Qué es una “huella de carbono”?", o: ["Una marca en el suelo", "Las emisiones asociadas a una actividad", "Un tipo de reciclaje", "Un contenedor especial"], a: 1 },
+      { q: "¿Cuál es una forma de reducir emisiones en casa?", o: ["Usar electrodomésticos eficientes", "Calentar con ventanas abiertas", "Poner luces todo el día", "Dejar cargadores siempre enchufados"], a: 0 },
+      { q: "¿Qué es el cambio climático?", o: ["Un cambio solo de estaciones", "Una variación a largo plazo del clima", "Un tipo de reciclaje", "Que llueva siempre igual"], a: 1 },
+      { q: "¿Cuál de estas opciones es una energía fósil?", o: ["Energía solar", "Energía eólica", "Petróleo", "Energía hidráulica"], a: 2 },
+
+      { q: "¿Qué se considera “economía circular”?", o: ["Usar y tirar", "Mantener productos y materiales en uso el máximo tiempo", "Producir más basura", "Comprar siempre nuevo"], a: 1 },
+      { q: "¿Qué acción es mejor para el reciclaje?", o: ["Tirar residuos sucios", "Separar y limpiar envases si es necesario", "Mezclar vidrio con orgánico", "Aplastar pilas"], a: 1 },
+      { q: "¿Qué es la eficiencia energética en iluminación?", o: ["Más luz con menos consumo", "Menos luz con más consumo", "Usar solo velas", "Usar lámparas antiguas siempre"], a: 0 },
+      { q: "¿Qué opción reduce el desperdicio alimentario?", o: ["Comprar sin planificar", "Planificar menús y aprovechar sobras", "Tirar comida al primer día", "Comprar más de lo que se necesita"], a: 1 },
+      { q: "¿Qué es una “energía limpia”?", o: ["La que contamina mucho", "La que reduce emisiones y contaminación", "La que solo usa carbón", "La que siempre depende del petróleo"], a: 1 },
+      { q: "¿Qué mejora la calidad del aire en ciudades?", o: ["Más coches diésel", "Más zonas verdes y transporte sostenible", "Más humo industrial", "Más tráfico"], a: 1 },
+      { q: "¿Qué es un coche eléctrico?", o: ["Funciona solo con gasolina", "Funciona con energía almacenada en baterías", "Funciona con carbón", "Funciona sin energía"], a: 1 },
+      { q: "¿Qué opción es mejor para llevar la compra?", o: ["Bolsas reutilizables", "Bolsas de un solo uso siempre", "Envolver todo en plástico extra", "Tirar el embalaje en la calle"], a: 0 },
+      { q: "¿Qué es una auditoría energética?", o: ["Un examen de matemáticas", "Un análisis para mejorar el consumo de energía", "Un tipo de reciclaje", "Una encuesta de transporte"], a: 1 },
+      { q: "¿Cuál es un efecto posible del cambio climático?", o: ["Más eventos extremos (olas de calor, sequías)", "Menos variación climática", "Que el sol se apague", "Que el mar desaparezca"], a: 0 },
     ];
 
     let questionBag = [];
