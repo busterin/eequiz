@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz por Equipos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- INICIO -->
+<section id="start-screen" class="screen start-screen">
+  <h1 class="game-title">Carrera Financiera</h1>
+  <h2 class="game-subtitle">Un quiz de preguntas y respuestas</h2>
+
+  <img src="images/guardianes.png" alt="Guardianes" class="guardianes-start">
+  <button id="enterSetup" type="button" class="img-btn" aria-label="Comenzar">
+    <img src="images/boton.png" alt="Comenzar">
+  </button>
+</section>
+
+<!-- CONFIGURACIÓN -->
+<section id="setup-screen" class="screen hidden">
+  <img src="images/guardianes.png" alt="Guardianes" class="guardianes-top">
+  <h1>Configura el Quiz</h1>
+
+  <label>Número de equipos</label>
+  <select id="numTeams">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+
+  <div id="teamsConfig"></div>
+
+  <button class="btn" id="startGame" type="button">Comenzar</button>
+</section>
+
+<!-- JUEGO -->
+<section id="game-screen" class="screen hidden">
+  <div id="top-bar">
+    <div id="teams-track"></div>
+    <div id="timer">15:00</div>
+  </div>
+
+  <img src="images/guardianes.png" alt="Guardianes" class="guardianes-game">
+
+  <h2 id="turnText"></h2>
+
+  <div id="question-box">
+    <p id="question">Aquí irá la pregunta</p>
+    <div id="options" class="options"></div>
+    <div id="feedback" class="feedback" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section id="end-screen" class="screen hidden end-screen">
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <img src="images/guardianes.png" alt="Guardianes" class="guardianes-top">
+  <h1 id="winnerText"></h1>
+
+  <button id="restartBtn" type="button" class="img-btn" aria-label="Jugar de nuevo">
+    <img src="images/boton2.png" alt="Jugar de nuevo">
+  </button>
+</section>
+
+<script src="script.js?v=20251226a"></script>
+</body>
+</html>
