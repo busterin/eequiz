@@ -104,15 +104,15 @@ h1, h2, label{
   transform: scale(0.97);
 }
 
-/* ✅ ÚNICO CAMBIO: botones del mismo color que el recuadro de preguntas */
+/* ✅ ÚNICO CAMBIO: color del botón */
 .btn-main{
   margin-top: 14px;
   padding: 14px 36px;
   font-size: 20px;
   font-weight: 800;
 
-  color: #111111;        /* para que contraste en cian */
-  background: #1EC9F4;   /* mismo color que #question-box */
+  color: #111111;
+  background: #4FC3F7; /* azul claro */
   box-shadow: 0 6px 16px rgba(0,0,0,0.35);
 }
 
@@ -228,14 +228,13 @@ h1, h2, label{
 }
 
 /* =====================
-   PREGUNTAS (ÚNICO CAMBIO)
+   PREGUNTAS
 ===================== */
 #question-box{
   margin: 18px auto 0;
   width: min(760px, 92vw);
   min-height: 320px;
 
-  /* ✅ SOLO cambia el color */
   background: #1EC9F4;
 
   display: flex;
