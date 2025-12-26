@@ -1,265 +1,45 @@
 /* =====================
-   FUENTE: FT Base (local)
+   VARIABLES DE COLOR
 ===================== */
-@font-face{
-  font-family: "FT Base";
-  src: url("fonts/FTBase-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
+:root{
+  --purple-main: #6537F2;
+  --purple-dark: #4E2EDC;
 }
 
 /* =====================
-   RESET / BASE
+   BOTÓN PRINCIPAL
 ===================== */
-*{ box-sizing: border-box; }
+.main-btn{
+  margin-top: 14px;
+  padding: 16px 42px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
 
-html, body{
-  height: 100%;
-}
-
-body{
-  margin: 0;
-  font-family: Arial, sans-serif;
-  text-align: center;
-
-  /* ✅ FORZAR morado (evita que quede el fondo antiguo) */
-  background-color: #6537F2 !important;
-  background-image: none !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-/* =====================
-   PANTALLAS GENERALES
-===================== */
-.screen{
-  min-height: 100vh;
-  width: 100vw;
-  padding: 20px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  /* ✅ por si algún navegador/entorno mete fondo a secciones */
-  background: transparent !important;
-}
-
-.hidden{
-  display: none !important;
-}
-
-h1, h2, label{
-  color: #ffffff;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.35);
-}
-
-/* =====================
-   PANTALLA INICIO
-===================== */
-.start-screen{
-  justify-content: flex-start; /* ✅ logo arriba */
-  gap: 16px;
-  padding-top: 22px;
-}
-
-/* LOGO INICIO (arriba) */
-.guardianes-start{
-  width: min(520px, 80vw);
-  height: auto;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.35));
-  margin-top: 6px;
-  margin-bottom: 4px;
-}
-
-/* TÍTULO Y SUBTÍTULO (FT Base) */
-.game-title{
-  margin: 0;
-  font-family: "FT Base", Arial, sans-serif;
-  font-size: clamp(40px, 6vw, 64px);
-  font-weight: 400;
-  color: #ffffff;
-
-  background: #000;
-  padding: 12px 28px;
+  border: none;
   border-radius: 18px;
-}
-
-.game-subtitle{
-  margin: 0 0 6px;
-  font-family: "FT Base", Arial, sans-serif;
-  font-size: clamp(20px, 3.5vw, 28px);
-  font-weight: 400;
-  color: #f0f0f0;
-
-  background: #000;
-  padding: 10px 24px;
-  border-radius: 16px;
-}
-
-/* BOTONES CON IMAGEN */
-.img-btn{
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  padding: 0;
-  margin-top: 6px;
-}
-
-.img-btn img{
-  width: min(320px, 70vw);
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.35));
-  pointer-events: none;
-}
-
-.img-btn:active{
-  transform: scale(0.98);
-}
-
-/* =====================
-   CONFIGURACIÓN
-===================== */
-#setup-screen{
-  justify-content: flex-start;
-}
-
-/* quita el logo en configuración */
-#setup-screen .guardianes-top{
-  display: none !important;
-}
-
-#teamsConfig{
-  margin: 20px auto;
-  max-width: 560px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.team-row{
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-  background: rgba(0,0,0,0.35);
-  padding: 12px;
-  border-radius: 12px;
-}
-
-.team-row input,
-.team-row select{
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  width: 200px;
-}
-
-.preview{
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-}
-
-/* BOTÓN NORMAL */
-.btn{
-  padding: 12px 18px;
-  border: none;
-  border-radius: 14px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.btn:active{
-  transform: scale(0.97);
-}
-
-/* =====================
-   JUEGO
-===================== */
-#game-screen{
-  justify-content: flex-start;
-}
-
-/* quita logo guardianes durante el juego */
-#game-screen .guardianes-game{
-  display: none !important;
-}
-
-#top-bar{
-  width: 100%;
-  position: relative;
-  padding: 10px 0;
-  margin-bottom: 6px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: rgba(0,0,0,0.25);
-  backdrop-filter: blur(3px);
-}
-
-#timer{
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
 
   color: #ffffff;
-  font-size: 20px;
-  font-weight: 700;
+  background: linear-gradient(180deg, var(--purple-dark), var(--purple-main));
+  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
 
-  background: rgba(0,0,0,0.45);
-  padding: 6px 10px;
-  border-radius: 12px;
+  cursor: pointer;
 }
 
-/* RECORRIDO */
-#teams-track{
-  position: relative;
-  width: min(820px, 92vw);
-  height: 70px;
-}
-
-.team-icon{
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
-  transform: translate(var(--x), -50%);
-  transition: transform 250ms ease;
-}
-
-.goal-icon{
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
-  transform: translate(var(--goal-x), -50%);
-  pointer-events: none;
-  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.45));
+.main-btn:active{
+  transform: scale(0.96);
 }
 
 /* =====================
-   PREGUNTAS
+   CAJA DE PREGUNTAS (NUEVA)
 ===================== */
 #question-box{
   margin: 18px auto 0;
   width: min(760px, 92vw);
   min-height: 320px;
 
-  background: url("images/cajatexto.jpg") no-repeat center center;
-  background-size: cover;
+  /* ✅ color morado sólido */
+  background: var(--purple-dark);
 
   display: flex;
   flex-direction: column;
@@ -267,113 +47,39 @@ h1, h2, label{
   align-items: center;
 
   padding: 42px 34px;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  border-radius: 22px;
+
+  box-shadow: 0 14px 32px rgba(0,0,0,0.45);
 }
 
+/* Texto pregunta */
 #question{
-  color: #111111;
+  color: #ffffff;
   font-size: 20px;
-  margin: 0 0 16px;
+  margin-bottom: 18px;
   max-width: 650px;
 }
 
-.options{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  width: min(620px, 90%);
-}
-
-@media (min-width: 720px){
-  .options{ grid-template-columns: 1fr 1fr; }
-}
-
-.option-btn{
-  padding: 12px 14px;
-  border: none;
-  border-radius: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  text-align: left;
-  background: rgba(255,255,255,0.92);
-}
-
-.option-btn:disabled{
-  cursor: default;
-  opacity: 0.98;
-}
-
-.option-btn.correct{
-  background: rgba(56,178,72,0.9);
-  color: #ffffff;
-}
-
-.option-btn.wrong{
-  background: rgba(220,38,38,0.9);
-  color: #ffffff;
-}
-
+/* Feedback */
 #feedback{
   min-height: 44px;
   margin-top: 18px;
   font-weight: 900;
-  color: #111111;
-  max-width: 650px;
+  color: #ffffff;
 }
 
-/* =====================
-   FINAL + CONFETI
-===================== */
-.end-screen{
-  position: relative;
-  justify-content: center;
-  gap: 14px;
+/* Opciones */
+.option-btn{
+  background: #ffffff;
+  color: #222;
 }
 
-#confetti{
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 1;
+.option-btn.correct{
+  background: #2ECC71;
+  color: #ffffff;
 }
 
-#end-screen .guardianes-top{
-  width: min(320px, 70vw);
-  max-height: 18vh;
-  height: auto;
-  object-fit: contain;
-  margin: 0 auto 12px;
-}
-
-.end-screen > *:not(#confetti){
-  position: relative;
-  z-index: 2;
-}
-
-/* =====================
-   MÓVIL
-===================== */
-@media (max-width: 768px){
-  .screen{
-    height: 100dvh;
-    min-height: 100dvh;
-    padding: 16px;
-  }
-}
-
-/* CONFIG: select más grande */
-#setup-screen select#numTeams{
-  width: 220px;
-  padding: 12px 16px;
-  font-size: 18px;
-  font-weight: 600;
-
-  border-radius: 12px;
-  border: none;
-
-  text-align: center;
-  cursor: pointer;
+.option-btn.wrong{
+  background: #E74C3C;
+  color: #ffffff;
 }
