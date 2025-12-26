@@ -53,9 +53,9 @@ h1, h2, label{
    PANTALLA INICIO
 ===================== */
 .start-screen{
-  justify-content: flex-start;
-  gap: 16px;
-  padding-top: 24px;
+  justify-content: center;   /* centrado vertical */
+  gap: 0;
+  padding-top: 0;
 }
 
 .game-title{
@@ -71,7 +71,7 @@ h1, h2, label{
 }
 
 .game-subtitle{
-  margin: 0 0 10px;
+  margin: 6px 0 24px;        /* más aire antes del logo */
   font-family: "FT Base", Arial, sans-serif;
   font-size: clamp(20px, 3.5vw, 28px);
   font-weight: normal;
@@ -87,6 +87,7 @@ h1, h2, label{
   width: min(520px, 80vw);
   height: auto;
   filter: drop-shadow(0 10px 20px rgba(0,0,0,0.35));
+  margin-bottom: 28px;       /* espacio antes del botón */
 }
 
 /* =====================
@@ -104,9 +105,9 @@ h1, h2, label{
   transform: scale(0.97);
 }
 
-/* ✅ ÚNICO CAMBIO: color del botón */
+/* Botones principales */
 .btn-main{
-  margin-top: 14px;
+  margin-top: 0;
   padding: 14px 36px;
   font-size: 20px;
   font-weight: 800;
@@ -125,6 +126,15 @@ h1, h2, label{
 
 #setup-screen .guardianes-top{
   display: none !important;
+}
+
+/* Select número de equipos más grande */
+#setup-screen select#numTeams{
+  width: 220px;
+  padding: 12px 16px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 12px;
 }
 
 #teamsConfig{
