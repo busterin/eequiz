@@ -15,11 +15,14 @@
   <h1 class="game-title">Desafío sostenible</h1>
   <h2 class="game-subtitle">Un quiz de preguntas y respuestas</h2>
 
-  <button id="enterSetup" class="main-btn">COMENZAR</button>
+  <button id="enterSetup" type="button" class="btn btn-main">
+    COMENZAR
+  </button>
 </section>
 
 <!-- CONFIGURACIÓN -->
 <section id="setup-screen" class="screen hidden">
+  <img src="images/guardianes.png" alt="Guardianes" class="guardianes-top">
   <h1>Configura el Quiz</h1>
 
   <label>Número de equipos</label>
@@ -32,7 +35,7 @@
 
   <div id="teamsConfig"></div>
 
-  <button class="btn" id="startGame">Comenzar</button>
+  <button class="btn" id="startGame" type="button">Comenzar</button>
 </section>
 
 <!-- JUEGO -->
@@ -42,25 +45,29 @@
     <div id="timer">15:00</div>
   </div>
 
+  <img src="images/guardianes.png" alt="Guardianes" class="guardianes-game">
+
   <h2 id="turnText"></h2>
 
   <div id="question-box">
-    <p id="question"></p>
+    <p id="question">Aquí irá la pregunta</p>
     <div id="options" class="options"></div>
-    <div id="feedback" aria-live="polite"></div>
+    <div id="feedback" class="feedback" aria-live="polite"></div>
   </div>
 </section>
 
 <!-- FINAL -->
 <section id="end-screen" class="screen hidden end-screen">
-  <canvas id="confetti"></canvas>
+  <canvas id="confetti" aria-hidden="true"></canvas>
 
   <img src="images/guardianes.png" alt="Guardianes" class="guardianes-top">
   <h1 id="winnerText"></h1>
 
-  <button id="restartBtn" class="main-btn">VOLVER A JUGAR</button>
+  <button id="restartBtn" type="button" class="btn btn-main">
+    VOLVER A JUGAR
+  </button>
 </section>
 
-<script src="script.js?v=20251226d"></script>
+<script src="script.js?v=20251226_final"></script>
 </body>
 </html>
