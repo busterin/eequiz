@@ -1,14 +1,4 @@
 /* =====================
-   FUENTE PERSONALIZADA
-===================== */
-@font-face{
-  font-family: "Missing Lovely";
-  src: url("fonts/MissingLovely.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* =====================
    RESET / BASE
 ===================== */
 *{ box-sizing: border-box; }
@@ -22,8 +12,8 @@ body{
   font-family: Arial, sans-serif;
   text-align: center;
 
-  background: url("images/fondo.jpg") no-repeat center center fixed;
-  background-size: cover;
+  /* ✅ Fondo morado sólido (similar a la imagen) */
+  background: #6537F2;
 
   min-height: 100vh;
   overflow: hidden;
@@ -48,7 +38,7 @@ body{
 
 h1, h2, label{
   color: #ffffff;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.35);
 }
 
 /* =====================
@@ -59,12 +49,12 @@ h1, h2, label{
   gap: 18px;
 }
 
-/* TÍTULO Y SUBTÍTULO (opacos) */
+/* ✅ Tipografía FT Base en título y subtítulo */
 .game-title{
   margin: 0;
-  font-family: "Missing Lovely", cursive;
+  font-family: "FT Base", Arial, sans-serif;
   font-size: clamp(40px, 6vw, 64px);
-  font-weight: normal;
+  font-weight: 700;
   color: #ffffff;
 
   background: #000; /* opaco */
@@ -74,9 +64,9 @@ h1, h2, label{
 
 .game-subtitle{
   margin: 0 0 10px;
-  font-family: "Missing Lovely", cursive;
+  font-family: "FT Base", Arial, sans-serif;
   font-size: clamp(20px, 3.5vw, 28px);
-  font-weight: normal;
+  font-weight: 500;
   color: #f0f0f0;
 
   background: #000; /* opaco */
@@ -91,7 +81,7 @@ h1, h2, label{
   filter: drop-shadow(0 10px 20px rgba(0,0,0,0.35));
 }
 
-/* BOTONES CON IMAGEN (centrados, sin hacks) */
+/* BOTONES CON IMAGEN */
 .img-btn{
   border: none;
   background: transparent;
@@ -105,7 +95,7 @@ h1, h2, label{
   display: block;
   margin: 0 auto;
   filter: drop-shadow(0 10px 18px rgba(0,0,0,0.35));
-  pointer-events: none; /* el click va al botón */
+  pointer-events: none;
 }
 
 .img-btn:active{
@@ -304,10 +294,10 @@ h1, h2, label{
   color: #ffffff;
 }
 
-/* ✅ feedback más separado */
+/* feedback separado */
 #feedback{
   min-height: 44px;
-  margin-top: 18px; /* más abajo */
+  margin-top: 18px;
   font-weight: 900;
   color: #111111;
   max-width: 650px;
@@ -331,7 +321,7 @@ h1, h2, label{
   z-index: 1;
 }
 
-/* ✅ FIX ÚNICO IMPORTANTE: limitar logo final para que no tape el layout */
+/* limitar logo final para que no tape el layout */
 #end-screen .guardianes-top{
   width: min(320px, 70vw);
   max-height: 18vh;
@@ -355,16 +345,16 @@ h1, h2, label{
     padding: 16px;
   }
 
-  /* en móvil ocultamos logo en juego y config ya está */
   #game-screen .guardianes-game{ display: none !important; }
 }
+
 /* =====================
    CONFIGURACIÓN: SELECT NÚMERO DE EQUIPOS MÁS GRANDE
 ===================== */
 #setup-screen select#numTeams{
-  width: 220px;          /* más ancho */
-  padding: 12px 16px;    /* más alto */
-  font-size: 18px;       /* texto más grande */
+  width: 220px;
+  padding: 12px 16px;
+  font-size: 18px;
   font-weight: 600;
 
   border-radius: 12px;
@@ -373,11 +363,10 @@ h1, h2, label{
   text-align: center;
   cursor: pointer;
 }
-/* =====================
-   AJUSTE FINO INICIO: MÁS AIRE EN LOS BORDES
-===================== */
 
-/* Baja ligeramente título y subtítulo */
+/* =====================
+   AJUSTE FINO INICIO
+===================== */
 .start-screen .game-title{
   margin-top: 10px;
 }
@@ -386,12 +375,10 @@ h1, h2, label{
   margin-top: 6px;
 }
 
-/* Sube el botón comenzar */
 .start-screen .img-btn{
   margin-top: -10px;
 }
 
-/* Seguridad extra: evita solapes */
 .start-screen .guardianes-start{
   margin-bottom: 18px;
 }
